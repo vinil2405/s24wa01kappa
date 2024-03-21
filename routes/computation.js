@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const a = Math.random();
-const b = Math.random();
+
 router.get('/', function(req, res) {
-    const difference = Math.abs(a - b);
-    res.send(`Math.abs(a - b) applied to ${a} and ${b} is ${difference}`);
-});
-router.get('/', function(req, res) {
-    res.send('Respond with a resource');
+    let x = req.query.x ? parseFloat(req.query.x) : Math.random();
+    let y = Math.random();
+    
+    const difference = Math.abs(x - y);
+    res.send(`Math.abs(x - y) applied to ${x} and ${y} is ${difference}`);
 });
 
 module.exports = router;
